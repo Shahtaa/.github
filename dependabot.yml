@@ -2,18 +2,32 @@ version: 2
 updates:
   # Configuration for Maven dependencies
   - package-ecosystem: "maven"
-    directory: "/" # Location of your dependency manifests
+    directory: "/" # Location of your dependency manifests (e.g., pom.xml)
     schedule:
       interval: "daily" # Check for updates daily
 
   # Configuration for npm dependencies
   - package-ecosystem: "npm"
-    directory: "/" # Location of your dependency manifests
+    directory: "/" # Location of your package manifests (e.g., package.json)
     schedule:
       interval: "daily" # Check for updates daily
 
-  # Configuration for Python dependencies
+  # Configuration for Python dependencies (pip)
   - package-ecosystem: "pip"
-    directory: "/" # Location of your dependency manifests
+    directory: "/" # Location of your dependency manifests (e.g., requirements.txt)
+    schedule:
+      interval: "daily" # Check for updates daily
+
+  # Optionally add more ecosystems if needed, for example, Docker or GitHub Actions:
+  
+  # Configuration for Docker dependencies
+  - package-ecosystem: "docker"
+    directory: "/" # Location of Dockerfiles
+    schedule:
+      interval: "daily" # Check for updates daily
+
+  # Configuration for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/" # Location of workflow files (e.g., .github/workflows)
     schedule:
       interval: "daily" # Check for updates daily
