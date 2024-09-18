@@ -11,6 +11,10 @@ updates:
     directory: "/" # Location of your package manifests (e.g., package.json)
     schedule:
       interval: "daily" # Check for updates daily
+    # Limit updates to Vite only
+    allow:
+      - dependency-name: "vite"
+        update-types: ["version-update:semver-major", "version-update:semver-minor", "version-update:semver-patch"]
 
   # Configuration for Python dependencies (pip)
   - package-ecosystem: "pip"
@@ -19,7 +23,7 @@ updates:
       interval: "daily" # Check for updates daily
 
   # Optionally add more ecosystems if needed, for example, Docker or GitHub Actions:
-  
+
   # Configuration for Docker dependencies
   - package-ecosystem: "docker"
     directory: "/" # Location of Dockerfiles
